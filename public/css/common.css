@@ -1,0 +1,80 @@
+html,body{
+    height: 100%;
+    
+}
+body{
+    display: flex;
+}
+.jq-side{
+    width: 256px;
+    height: 100%;
+    background: rgb(71, 71, 71);
+}
+.jq-side a{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    font-size: 14px;
+    border-bottom:1px solid #ccc;
+    padding-left: 70px;
+}
+.jq-main{
+    display: flex;
+    background: #eee;
+    flex: 1;
+    flex-direction: column;
+}
+.jq-header{
+    height: 50px;
+    background: rgb(7, 7, 7);
+    color: #ccc;
+    line-height: 50px;
+    padding-left: 30px;
+    font-size: 16px;
+}
+.jq-header a img{
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+#xinzeng{
+    background: #000;
+    color: #fff; 
+    position: absolute;
+    left:1000px;
+    top:10px;
+}
+.welcome{
+    width: 200px;
+    height: 100%;
+    float: right;
+}
+.welcome a{
+    color: #fff;
+}
+.jq-body{
+    flex: 1;
+    overflow-y:auto; 
+}
+/* ****************************************** */
+#banner-table{
+    border: 1px solid #000;
+    width: 100%;
+}
+#banner-table th,#banner-table td{
+    border:1px solid #000;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+#banner-table img{
+    height: 40px;
+    margin: 0 auto;
+}
+/* 分页 */
+#page{
+    margin-left: 450px;
+}
