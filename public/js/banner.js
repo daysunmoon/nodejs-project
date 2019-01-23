@@ -2,7 +2,7 @@
     //定义这个文件操作的构造函数
     var Banner = function () {
         this.pageNum = 1; //当前页数
-        this.pageSize = 2; //每页显示的条数
+        this.pageSize = 4; //每页显示的条数
         this.totalPage = 0; //总得页数
         this.bannerList = [];
         //需要用到的dom对象 性能优化dom缓存
@@ -19,23 +19,50 @@
     //新增方法
     Banner.prototype.add = function () {
         var _this = this;
-        $.post('/banner/add', {
-            bannerName: this.dom.nameInput.val(),
-            bannerUrl: this.dom.urlInput.val()
-        }, function (res) {
-            if (res.code === 0) {
+        // 1.实例化一个FormData对象
+        var formData = new FormData();
+        //2.给formData对象加属性
+        formData.append('bannerName',this.dom.nameInput.val());
+        formData.append('bannerImg',this.dom.urlInput[0].files[0]);
+        $.ajax({
+            url:'/banner/add',
+            method:'POST',
+            contentType:false,
+            processData:false,
+            data:formData,
+            success:function(){
                 layer.msg('添加成功');
                 _this.search();
-            } else {
-                console.log(err.message);
-                alert('网络异常，请稍后操作');
-            }
-            // 手动调用关闭的方法
+            },
+            error:function(){
+                console.log(error.message);
+                layer.msg('网络异常，请稍后重试');
+            },
+            complete:function(){
+                // 手动调用关闭的方法
             _this.dom.addModal.modal('hide');
             //手动清空输入框的内容
             _this.dom.nameInput.val('');
             _this.dom.urlInput.val('');
+            }
         })
+        // $.post('/banner/add', {
+        //     bannerName: this.dom.nameInput.val(),
+        //     bannerUrl: this.dom.urlInput.val()
+        // }, function (res) {
+        //     if (res.code === 0) {
+        //         layer.msg('添加成功');
+        //         _this.search();
+        //     } else {
+        //         console.log(err.message);
+        //         alert('网络异常，请稍后操作');
+        //     }
+        //     // 手动调用关闭的方法
+        //     _this.dom.addModal.modal('hide');
+        //     //手动清空输入框的内容
+        //     _this.dom.nameInput.val('');
+        //     _this.dom.urlInput.val('');
+        // })
     }
     //查询方法
     Banner.prototype.search = function () {
