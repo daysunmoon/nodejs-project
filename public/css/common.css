@@ -47,12 +47,12 @@ body{
     left:1000px;
     top:10px;
 }
-.welcome{
+#welcome{
     width: 200px;
     height: 100%;
     float: right;
 }
-.welcome a{
+#welcome a{
     color: #fff;
 }
 .jq-body{
