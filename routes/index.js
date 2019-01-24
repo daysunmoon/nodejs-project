@@ -17,4 +17,12 @@ router.get('/film.html',function(req,res){
 router.get('/cinema.html',function(req,res){
     res.render('cinema');
 })
+//注册
+router.get('/register.html',function(req,res){
+    res.render('register');
+})
+//登录
+router.get('/login.html',function(req,res){
+    res.render('login');
+})
 module.exports = router;

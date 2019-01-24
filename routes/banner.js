@@ -6,14 +6,14 @@ const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
 const upload = multer({
-    dest:'F:/tmp'
+    dest: 'F:/tmp'
 })
 const router = express.Router();
 //新增banner
 router.post('/add', upload.single('bannerImg'), function (req, res) {
     console.log(req.file)
     const newFileName = new Date().getTime() + '_' + req.file.originalname;
-    const newFilePath = path.resolve(__dirname, '../public/uploads/banners/',newFileName);
+    const newFilePath = path.resolve(__dirname, '../public/uploads/banners/', newFileName);
     // 2.把文件移动到public中
     try {
         const data = fs.readFileSync(req.file.path);
@@ -24,21 +24,21 @@ router.post('/add', upload.single('bannerImg'), function (req, res) {
             name: req.body.bannerName,
             imgUrl: 'http://localhost:3000/uploads/banners/' + newFileName
         });
-        banner.save().then(function(){
+        banner.save().then(function () {
             res.json({
-                code:0,
-                msg:'ok'
+                code: 0,
+                msg: 'ok'
             })
-        }).catch(function(err){
+        }).catch(function (err) {
             res.json({
-                code:-1,
-                msg:err.message
+                code: -1,
+                msg: err.message
             })
         })
     } catch (error) {
         res.json({
-            code:-1,
-            msg:error.message
+            code: -1,
+            msg: error.message
         })
     }
 })
@@ -125,5 +125,39 @@ router.post('/delete', function (req, res) {
         })
     })
 })
-
+//修改
+router.post('/update', upload.single('updateImg'), function (req, res) {
+    const newFileName = new Date().getTime() + '_' + req.file.originalname;
+    const newFilePath = path.resolve(__dirname, '../public/uploads/banners/', newFileName);
+    // 2.把文件移动到public中
+    try {
+        const data = fs.readFileSync(req.file.path);
+        fs.writeFileSync(newFilePath, data);
+        fs.unlinkSync(req.file.path);
+       BannerModel.updateOne(
+           {_id:req.body.id},
+           {
+               $set:{
+                   name:req.body.updateName,
+                   imgUrl:'http://localhost:3000/uploads/banners/' + newFileName
+               }
+           }
+       ).then(function(){
+        res.json({
+            code:0,
+            msg:'ok'
+        })
+       }).catch(function(error){
+            res.json({
+                code:-1,
+                msg:error.message
+            })
+       })
+    } catch (error) {
+        res.json({
+            code: -1,
+            msg: error.message
+        })
+    }
+})
 module.exports = router;

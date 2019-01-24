@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index');
 const bannerRouter = require('./routes/banner');
 const filmRouter = require('./routes/film');
 const cinemaRouter = require('./routes/cinema');
+const userRouter = require('./routes/userRouter');
 //使用中间件
 app.use(cookieParser());
 app.use(express.json());
@@ -24,4 +25,5 @@ app.use('/', indexRouter);
 app.use('/banner', bannerRouter);
 app.use('/film', filmRouter);
 app.use('/cinema',cinemaRouter);
+app.use('/user',userRouter);
 app.listen(3000);
