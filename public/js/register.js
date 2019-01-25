@@ -3,8 +3,10 @@
         this.btnLock = false;
         this.dom = {
             loginBtn: $('#loginBtn'),
-            userNameInput: $('input[type = text]'),
-            passwordInput: $('input[type = password]')
+            userNameInput: $('.userName'),
+            passwordInput: $('.password'),
+            nickNameInput: $('.nickName'),
+            isAdminInput: $('.isAdmin')
         }
     }
     User.prototype.bindDom = function () {
@@ -17,12 +19,14 @@
         })
     }
 
-    //登录login方法
+    //注册register方法
     User.prototype.Register = function () {
         var _this = this;
         $.post('/user/register', {
             userName: this.dom.userNameInput.val(),
-            password: this.dom.passwordInput.val()
+            password: this.dom.passwordInput.val(),
+            nickName: this.dom.nickNameInput.val(),
+            isAdmin:this.dom.isAdminInput.val()
         }, function (res) {
             if (res.code === 0) {
                 layer.msg('注册成功');
@@ -31,7 +35,7 @@
                 }, 1000)
 
             }else{
-                layer.msg('res.msg')
+                layer.msg(res.msg)
             }
             _this.btnLock = false;
         })
