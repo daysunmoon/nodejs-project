@@ -1,31 +1,37 @@
-html,body{
+html,
+body {
     height: 100%;
-    
+
 }
-body{
+
+body {
     display: flex;
 }
-.jq-side{
+
+.jq-side {
     width: 256px;
     height: 100%;
     background: rgb(71, 71, 71);
 }
-.jq-side a{
+
+.jq-side a {
     display: block;
     height: 50px;
     line-height: 50px;
     color: #fff;
     font-size: 14px;
-    border-bottom:1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     padding-left: 70px;
 }
-.jq-main{
+
+.jq-main {
     display: flex;
     background: #eee;
     flex: 1;
     flex-direction: column;
 }
-.jq-header{
+
+.jq-header {
     height: 50px;
     background: rgb(7, 7, 7);
     color: #ccc;
@@ -33,60 +39,102 @@ body{
     padding-left: 30px;
     font-size: 16px;
 }
-.jq-header a img{
+
+.jq-header a img {
     float: left;
     width: 30px;
     height: 30px;
     margin-right: 10px;
     margin-top: 10px;
 }
-#xinzeng{
+
+#xinzeng {
     background: #000;
-    color: #fff; 
+    color: #fff;
     position: absolute;
-    left:1000px;
-    top:10px;
+    left: 1000px;
+    top: 10px;
 }
-#welcome{
+
+#welcome {
     width: 200px;
     height: 100%;
     float: right;
+    position: relative;
 }
-#welcome a{
+
+#welcome .xiala {
+    position: relative;
+
+}
+
+#welcome .xiala i {
+    margin-left: 10px;
+    position: absolute;
+    left: 0;
+    top:-14px;
+}
+
+#welcome .up {
+    display: none;
+}
+
+#welcome ul {
+    width: 100px;
+    background: #000;
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    display: none;
+}
+
+#welcome ul li {
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+#welcome a {
     color: #fff;
 }
-.jq-body{
+
+.jq-body {
     flex: 1;
-    overflow-y:auto; 
+    overflow-y: auto;
 }
+
 /* ****************************************** */
-#banner-table{
+#banner-table {
     border: 1px solid #000;
     width: 100%;
 }
-#banner-table th,#banner-table td{
-    border:1px solid #000;
+
+#banner-table th,
+#banner-table td {
+    border: 1px solid #000;
     height: 50px;
     text-align: center;
     line-height: 50px;
 }
-#banner-table img{
+
+#banner-table img {
     height: 40px;
     margin: 0 auto;
 }
+
 /* 分页 */
-#page{
+#page {
     margin-left: 450px;
 }
 
 /* 登录 */
-#login{
+#login {
     width: 300px;
-    height:300px;
+    height: 300px;
     border: 1px solid #000000;
     margin: 100px auto;
 }
-#login h2{
+
+#login h2 {
     width: 300px;
     font-size: 20px;
     height: 20px;
@@ -95,17 +143,19 @@ body{
     font-weight: 700;
     text-align: center;
 }
-#login input{
+
+#login input {
     width: 200px;
     height: 50px;
     margin-top: 10px;
 }
-#login #loginBtn{
+
+#login #loginBtn {
     width: 250px;
     height: 50px;
     color: #fff;
     background: #000;
-    margin:30px;
+    margin: 30px;
     border: none;
     font-size: 20px;
     text-align: center;

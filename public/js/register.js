@@ -11,23 +11,23 @@
         var _this = this;
         this.dom.loginBtn.click(function () {
             if (!_this.btnLock) {
-                _this.btnLock = true;
-                _this.Login();
+                // _this.btnLock = true;
+                _this.Register();
             }
         })
     }
 
     //登录login方法
-    User.prototype.Login = function () {
+    User.prototype.Register = function () {
         var _this = this;
-        $.post('/user/login', {
+        $.post('/user/register', {
             userName: this.dom.userNameInput.val(),
             password: this.dom.passwordInput.val()
         }, function (res) {
             if (res.code === 0) {
-                layer.msg('登录成功');
+                layer.msg('注册成功');
                 setTimeout(function () {
-                    location.href = '/';
+                    location.href = '/login.html';
                 }, 1000)
 
             }else{

@@ -1,11 +1,16 @@
 
     <div class="jq-header">
-        <a href="index.html"><img src="/img/toIndex.png" alt=""></a>
+        <a href="javascript:;"><img src="/img/toIndex.png" alt=""></a>
         <span>头部</span>
         <button id="xinzeng" class="btn btn-default" data-toggle="modal" data-target="#myModal">新增</button>
         <div id="welcome">
             <span>欢迎您，</span>
             <i><%= nickName%></i>
+            <span class="xiala">
+                <i>▼</i>
+                <i class="up">▲</i>
+            </span>
+            
             <ul>
                 <li><a href="">修改资料</a></li>
                 <li><a href="">修改密码</a></li>
@@ -13,3 +18,6 @@
             </ul>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/common.js"></script>
+    

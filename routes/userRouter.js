@@ -41,6 +41,10 @@ router.post('/login',function(req,res){
                res.cookie('admin',1,{
                 maxAge:1000 * 60 * 10
                }) 
+            }else{
+                res.cookie('admin',0,{
+                    maxAge:1000 * 60 * 10
+                   }) 
             }
             res.json({
                 code:0,
